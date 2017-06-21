@@ -10,9 +10,38 @@ import UIKit
 
 class ClientTableViewController: UITableViewController {
 
+    var clients = [Client]()
+    //MARK: Actions
+    @IBAction func unwindToClientList(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? AddClientViewController, let client = sourceViewController.client {
+            
+            // Add a new client
+            let newIndexPath = IndexPath(row: clients.count, section: 0)
+            
+            clients.append(client)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        }
+    }
+    
+    
+    //MARK: Private Methods
+    
+    private func loadClients() {
+        
+        //should load from DB
+        let client1 = Client(name: "Alex", phone: "123", email: "1@d.com", birthday: NSDate.init(), clientID: 1)
+        let client2 = Client(name: "Bob", phone: "1234", email: "2@d.com", birthday: NSDate.init(), clientID: 2)
+        let client3 = Client(name: "Cindy", phone: "12345", email: "3@d.com", birthday: NSDate.init(), clientID: 3)
+        
+        clients += [client1, client2, client3]
+        
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        loadClients()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -29,23 +58,31 @@ class ClientTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return clients.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cellIdentifier = "ClientTableViewCell"
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ClientTableViewCell  else {
+            fatalError("The dequeued cell is not an instance of MealTableViewCell.")
+        }
+        
+        let client = clients[indexPath.row]
+        
+        
 
         // Configure the cell...
-
+        cell.clientName.text = client.name
+        
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

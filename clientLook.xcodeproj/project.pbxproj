@@ -16,6 +16,9 @@
 		97669AA41EF9EAAA00679524 /* clientLookUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97669AA31EF9EAAA00679524 /* clientLookUITests.swift */; };
 		97669AB21EF9F31E00679524 /* RegisterPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97669AB11EF9F31E00679524 /* RegisterPageViewController.swift */; };
 		97669AB61EFA058900679524 /* ClientTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97669AB51EFA058900679524 /* ClientTableViewController.swift */; };
+		97669AB81EFB14FE00679524 /* ClientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97669AB71EFB14FE00679524 /* ClientTableViewCell.swift */; };
+		97669ABA1EFB190100679524 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97669AB91EFB190100679524 /* Client.swift */; };
+		97669ABC1EFB29DC00679524 /* AddClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97669ABB1EFB29DC00679524 /* AddClientViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,9 @@
 		97669AA51EF9EAAA00679524 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		97669AB11EF9F31E00679524 /* RegisterPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterPageViewController.swift; sourceTree = "<group>"; };
 		97669AB51EFA058900679524 /* ClientTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientTableViewController.swift; sourceTree = "<group>"; };
+		97669AB71EFB14FE00679524 /* ClientTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientTableViewCell.swift; sourceTree = "<group>"; };
+		97669AB91EFB190100679524 /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		97669ABB1EFB29DC00679524 /* AddClientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddClientViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +111,9 @@
 				97669A851EF9EAAA00679524 /* ViewController.swift */,
 				97669AB11EF9F31E00679524 /* RegisterPageViewController.swift */,
 				97669AB51EFA058900679524 /* ClientTableViewController.swift */,
+				97669ABB1EFB29DC00679524 /* AddClientViewController.swift */,
+				97669AB71EFB14FE00679524 /* ClientTableViewCell.swift */,
+				97669AB91EFB190100679524 /* Client.swift */,
 				97669A871EF9EAAA00679524 /* Main.storyboard */,
 				97669A8A1EF9EAAA00679524 /* Assets.xcassets */,
 				97669A8C1EF9EAAA00679524 /* LaunchScreen.storyboard */,
@@ -267,8 +276,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				97669AB61EFA058900679524 /* ClientTableViewController.swift in Sources */,
+				97669ABC1EFB29DC00679524 /* AddClientViewController.swift in Sources */,
 				97669A861EF9EAAA00679524 /* ViewController.swift in Sources */,
+				97669ABA1EFB190100679524 /* Client.swift in Sources */,
 				97669A841EF9EAAA00679524 /* AppDelegate.swift in Sources */,
+				97669AB81EFB14FE00679524 /* ClientTableViewCell.swift in Sources */,
 				97669AB21EF9F31E00679524 /* RegisterPageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
