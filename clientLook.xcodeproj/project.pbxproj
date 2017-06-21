@@ -14,6 +14,7 @@
 		97669A8E1EF9EAAA00679524 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97669A8C1EF9EAAA00679524 /* LaunchScreen.storyboard */; };
 		97669A991EF9EAAA00679524 /* clientLookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97669A981EF9EAAA00679524 /* clientLookTests.swift */; };
 		97669AA41EF9EAAA00679524 /* clientLookUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97669AA31EF9EAAA00679524 /* clientLookUITests.swift */; };
+		97669AB21EF9F31E00679524 /* RegisterPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97669AB11EF9F31E00679524 /* RegisterPageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		97669A9F1EF9EAAA00679524 /* clientLookUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = clientLookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		97669AA31EF9EAAA00679524 /* clientLookUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = clientLookUITests.swift; sourceTree = "<group>"; };
 		97669AA51EF9EAAA00679524 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		97669AB11EF9F31E00679524 /* RegisterPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterPageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				97669A831EF9EAAA00679524 /* AppDelegate.swift */,
 				97669A851EF9EAAA00679524 /* ViewController.swift */,
+				97669AB11EF9F31E00679524 /* RegisterPageViewController.swift */,
 				97669A871EF9EAAA00679524 /* Main.storyboard */,
 				97669A8A1EF9EAAA00679524 /* Assets.xcassets */,
 				97669A8C1EF9EAAA00679524 /* LaunchScreen.storyboard */,
@@ -262,6 +265,7 @@
 			files = (
 				97669A861EF9EAAA00679524 /* ViewController.swift in Sources */,
 				97669A841EF9EAAA00679524 /* AppDelegate.swift in Sources */,
+				97669AB21EF9F31E00679524 /* RegisterPageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,6 +514,7 @@
 				97669AAA1EF9EAAA00679524 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		97669AAB1EF9EAAA00679524 /* Build configuration list for PBXNativeTarget "clientLookTests" */ = {
 			isa = XCConfigurationList;
@@ -518,6 +523,7 @@
 				97669AAD1EF9EAAA00679524 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		97669AAE1EF9EAAA00679524 /* Build configuration list for PBXNativeTarget "clientLookUITests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +532,7 @@
 				97669AB01EF9EAAA00679524 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
