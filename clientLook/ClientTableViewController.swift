@@ -9,26 +9,29 @@
 import UIKit
 import os.log
 
-class ClientTableViewController: UITableViewController {
+class ClientTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ClientModelProtocol {
 
-    var clients = [Client]()
+    @IBOutlet var clientTableView: UITableView!
+    var clients: NSMutableArray = NSMutableArray()
+    
     //MARK: Actions
+    
     @IBAction func unwindToClientList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? AddClientViewController, let client = sourceViewController.client {
             
             // Add a new client
             let newIndexPath = IndexPath(row: clients.count, section: 0)
             
-            clients.append(client)
-            tableView.insertRows(at: [newIndexPath], with: .automatic)
+            clients.add(client)
+            clientTableView.insertRows(at: [newIndexPath], with: .automatic)
         }
         
         if let sourceViewController = sender.source as? ClientDetailViewController, let client = sourceViewController.client {
             
-            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+            if let selectedIndexPath = clientTableView.indexPathForSelectedRow {
                 // Update an existing meal.
-                clients[selectedIndexPath.row] = client
-                tableView.reloadRows(at: [selectedIndexPath], with: .none)
+                clients.replaceObject(at: selectedIndexPath.row, with: client)
+                clientTableView.reloadRows(at: [selectedIndexPath], with: .none)
             }
         }
     }
@@ -43,7 +46,7 @@ class ClientTableViewController: UITableViewController {
         let client2 = Client(name: "Bob", phone: "1234", email: "2@d.com", birthday: NSDate.init(), clientID: 2)
         let client3 = Client(name: "Cindy", phone: "12345", email: "3@d.com", birthday: NSDate.init(), clientID: 3)
         
-        clients += [client1, client2, client3]
+        clients.addObjects(from: [client1, client2, client3])
         
     }
     
@@ -54,6 +57,12 @@ class ClientTableViewController: UITableViewController {
         
         navigationItem.leftBarButtonItem = editButtonItem
         
+        clientTableView.delegate = self
+        clientTableView.dataSource = self
+        
+        let clientModel = ClientModel()
+        clientModel.delegate = self
+        
         loadClients()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -62,6 +71,12 @@ class ClientTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
+    func itemsDownloaded(items : NSMutableArray) {
+        
+        self.clients = items
+        self.clientTableView.reloadData()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -69,18 +84,18 @@ class ClientTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return clients.count
     }
 
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "ClientTableViewCell"
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ClientTableViewCell  else {
             fatalError("The dequeued cell is not an instance of MealTableViewCell.")
@@ -91,7 +106,7 @@ class ClientTableViewController: UITableViewController {
         
 
         // Configure the cell...
-        cell.clientName.text = client.name
+        cell.clientName.text = (client as! Client).name
         
         return cell
     }
@@ -99,7 +114,7 @@ class ClientTableViewController: UITableViewController {
 
     
     // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
@@ -107,7 +122,7 @@ class ClientTableViewController: UITableViewController {
 
     
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
             clients.remove(at: indexPath.row)
@@ -151,12 +166,12 @@ class ClientTableViewController: UITableViewController {
                     fatalError("Unexpected sender: \(sender)")
                 }
                 
-                guard let indexPath = tableView.indexPath(for: selectedClientCell) else {
+                guard let indexPath = clientTableView.indexPath(for: selectedClientCell) else {
                     fatalError("The selected cell is not being displayed by the table")
                 }
                 
                 let selectedClient = clients[indexPath.row]
-                clientDetailViewController.client = selectedClient
+                clientDetailViewController.client = selectedClient as! Client
             default:
                 fatalError("Unexpected Segue Identifier; \(segue.identifier)")
         }

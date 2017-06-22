@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Order {
+class Order: NSObject  {
     
     var orderID: Int
     var brand: String
