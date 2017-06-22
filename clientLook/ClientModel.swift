@@ -41,7 +41,7 @@ class ClientModel: NSObject {
     
     func addItem(_ client: Client) -> Int {
         
-        let dict = ["email": client.email, "name": client.name, "phone": client.phone, "birthday": "123", "associate_id": 1] as [String: Any]
+        let dict = ["email": client.email, "name": client.name, "phone": client.phone, "birthday": client.birthday?.toString(dateFormat: "yyyy-MM-dd"), "associate_id": 1] as [String: Any]
         if let jsonData = try? JSONSerialization.data(withJSONObject: dict, options: []) {
 
             var request = URLRequest(url: URL(string: "http://localhost:8080/api/client")!)
@@ -93,14 +93,14 @@ class ClientModel: NSObject {
             //the following insures none of the JsonElement values are nil through optional binding
             if let name = jsonElement["name"] as? String,
                 let phone = jsonElement["phone"] as? String,
-                let email = jsonElement["email"] as? String
-                //let birthday = jsonElement["birthday"] as? NSDate
+                let email = jsonElement["email"] as? String,
+                let birthday = jsonElement["birthday"] as? NSDate
             {
                 
                 client.name = name
                 client.phone = phone
                 client.email = email
-                //client.birthday = birthday
+                client.birthday = birthday
                 
                 
             }
