@@ -59,7 +59,7 @@ class AddClientViewController: UIViewController, UITextFieldDelegate, UIImagePic
         
         //post to DB
         //create a new client in response
-        client = Client(name: name, phone: phone, email: email, birthday: birthday as NSDate, clientID: 99);
+        client = Client(name: name, phone: phone, email: email, birthday: birthday as NSDate, clientID: 99, custom: custom);
         
         
         

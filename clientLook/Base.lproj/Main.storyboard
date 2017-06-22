@@ -99,6 +99,7 @@
                                 <connections>
                                     <outlet property="clientName" destination="6ZE-xH-PtO" id="u1x-k7-QiE"/>
                                     <outlet property="clientPhoto" destination="gsB-FT-4Wf" id="VML-ol-2Gi"/>
+                                    <segue destination="Z9U-Mh-z1L" kind="show" identifier="showClientDetail" id="uDu-se-QNs"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -110,14 +111,14 @@
                     <navigationItem key="navigationItem" title="Your Clients" id="8tJ-uK-7Ed">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ixy-RM-EGo">
                             <connections>
-                                <segue destination="tXR-qP-zHb" kind="show" id="5Q9-WY-rrM"/>
+                                <segue destination="tXR-qP-zHb" kind="show" identifier="addClient" id="5Q9-WY-rrM"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2yu-UH-CbM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="954.87256371814101"/>
+            <point key="canvasLocation" x="1044" y="955"/>
         </scene>
         <!--Register Page View Controller-->
         <scene sceneID="1wD-mv-Bch">
@@ -336,6 +337,122 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pip-Uw-9Fj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1076" y="1714.9925037481262"/>
+        </scene>
+        <!--ClientDetailViewController-->
+        <scene sceneID="Ruw-Yl-dF6">
+            <objects>
+                <viewController id="Z9U-Mh-z1L" userLabel="ClientDetailViewController" customClass="ClientDetailViewController" customModule="clientLook" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5mJ-TV-b8q"/>
+                        <viewControllerLayoutGuide type="bottom" id="uOD-Ua-14Y"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tp2-tW-kCN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Pep-k8-oDS">
+                                <rect key="frame" x="10" y="74" width="355" height="600.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mg-GL-NMw">
+                                        <rect key="frame" x="0.0" y="0.0" width="355" height="26.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Iu8-Q6-bwi">
+                                        <rect key="frame" x="0.0" y="36.5" width="355" height="39"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WLW-Hr-0tY">
+                                        <rect key="frame" x="0.0" y="85.5" width="355" height="26.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="53J-R8-Ofe">
+                                        <rect key="frame" x="0.0" y="122" width="355" height="39"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K1S-XK-QPg">
+                                        <rect key="frame" x="0.0" y="171" width="355" height="27"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gp5-Bq-H4s">
+                                        <rect key="frame" x="0.0" y="208" width="355" height="38.5"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birthday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWJ-q5-k03">
+                                        <rect key="frame" x="0.0" y="256.5" width="355" height="27"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xup-KM-ZYW">
+                                        <rect key="frame" x="0.0" y="293.5" width="355" height="39"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Custom" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gay-jz-gN8">
+                                        <rect key="frame" x="0.0" y="342.5" width="355" height="26.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3yV-RD-wLO">
+                                        <rect key="frame" x="0.0" y="379" width="355" height="39"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="plZ-BI-kQn">
+                                        <rect key="frame" x="0.0" y="428" width="355" height="39"/>
+                                        <state key="normal" title="Order History"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8mr-SN-zzf">
+                                        <rect key="frame" x="0.0" y="477" width="355" height="38.5"/>
+                                        <state key="normal" title="Statistic"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LCn-75-N4o">
+                                        <rect key="frame" x="0.0" y="525.5" width="355" height="75"/>
+                                        <state key="normal" title="Delete">
+                                            <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Pep-k8-oDS" secondAttribute="trailing" constant="10" id="VRz-a2-C8M"/>
+                            <constraint firstItem="Pep-k8-oDS" firstAttribute="leading" secondItem="tp2-tW-kCN" secondAttribute="leading" constant="10" id="XE7-YV-Que"/>
+                            <constraint firstItem="Pep-k8-oDS" firstAttribute="top" secondItem="5mJ-TV-b8q" secondAttribute="bottom" constant="10" id="bi6-AB-PiL"/>
+                            <constraint firstItem="Pep-k8-oDS" firstAttribute="height" secondItem="tp2-tW-kCN" secondAttribute="height" multiplier="0.9" id="wEM-hp-Zh4"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Client Profile" id="2e7-Ql-y86">
+                        <barButtonItem key="rightBarButtonItem" title="Update" id="swm-SW-2Re"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="clientBirthday" destination="Xup-KM-ZYW" id="gdy-h8-bfs"/>
+                        <outlet property="clientCustom" destination="3yV-RD-wLO" id="pNx-pr-aZj"/>
+                        <outlet property="clientEmail" destination="53J-R8-Ofe" id="tMj-aO-HIn"/>
+                        <outlet property="clientName" destination="Iu8-Q6-bwi" id="v05-2C-hFv"/>
+                        <outlet property="clientPhone" destination="Gp5-Bq-H4s" id="WVx-be-w9j"/>
+                        <outlet property="updateBtn" destination="swm-SW-2Re" id="RIY-8i-8SP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GPD-Yn-a3H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1967" y="979"/>
         </scene>
     </scenes>
 </document>

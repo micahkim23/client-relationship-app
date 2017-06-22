@@ -17,14 +17,15 @@ class Client {
     var email: String
     var birthday: NSDate
     var clientID: Int
+    var custom: String
     
-    init(name: String, phone: String, email: String, birthday: NSDate, clientID: Int) {
+    init(name: String, phone: String, email: String, birthday: NSDate, clientID: Int, custom: String?="") {
         self.name = name
         self.phone = phone
         self.email = email
         self.birthday = birthday
         self.clientID = clientID
-        
+        self.custom = custom!
     }
     
     

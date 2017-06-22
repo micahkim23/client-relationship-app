@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class ClientTableViewController: UITableViewController {
 
@@ -20,6 +21,15 @@ class ClientTableViewController: UITableViewController {
             
             clients.append(client)
             tableView.insertRows(at: [newIndexPath], with: .automatic)
+        }
+        
+        if let sourceViewController = sender.source as? ClientDetailViewController, let client = sourceViewController.client {
+            
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                // Update an existing meal.
+                clients[selectedIndexPath.row] = client
+                tableView.reloadRows(at: [selectedIndexPath], with: .none)
+            }
         }
     }
     
@@ -119,14 +129,35 @@ class ClientTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: sender)
+        switch(segue.identifier ?? "") {
+            case "addClient":
+                os_log("Adding a new client.", log: OSLog.default, type: .debug)
+            
+            case "showClientDetail":
+                guard let clientDetailViewController = segue.destination as? ClientDetailViewController else {
+                    fatalError("Unexpected destination: \(segue.destination)")
+                }
+                
+                guard let selectedClientCell = sender as? ClientTableViewCell else {
+                    fatalError("Unexpected sender: \(sender)")
+                }
+                
+                guard let indexPath = tableView.indexPath(for: selectedClientCell) else {
+                    fatalError("The selected cell is not being displayed by the table")
+                }
+                
+                let selectedClient = clients[indexPath.row]
+                clientDetailViewController.client = selectedClient
+            default:
+                fatalError("Unexpected Segue Identifier; \(segue.identifier)")
+        }
+        
     }
-    */
+    
 
 }

@@ -19,6 +19,7 @@
 		97669AB81EFB14FE00679524 /* ClientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97669AB71EFB14FE00679524 /* ClientTableViewCell.swift */; };
 		97669ABA1EFB190100679524 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97669AB91EFB190100679524 /* Client.swift */; };
 		97669ABC1EFB29DC00679524 /* AddClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97669ABB1EFB29DC00679524 /* AddClientViewController.swift */; };
+		97669ABE1EFB3CCD00679524 /* ClientDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97669ABD1EFB3CCD00679524 /* ClientDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		97669AB71EFB14FE00679524 /* ClientTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientTableViewCell.swift; sourceTree = "<group>"; };
 		97669AB91EFB190100679524 /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		97669ABB1EFB29DC00679524 /* AddClientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddClientViewController.swift; sourceTree = "<group>"; };
+		97669ABD1EFB3CCD00679524 /* ClientDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				97669A831EF9EAAA00679524 /* AppDelegate.swift */,
 				97669A851EF9EAAA00679524 /* ViewController.swift */,
 				97669AB11EF9F31E00679524 /* RegisterPageViewController.swift */,
+				97669ABD1EFB3CCD00679524 /* ClientDetailViewController.swift */,
 				97669AB51EFA058900679524 /* ClientTableViewController.swift */,
 				97669ABB1EFB29DC00679524 /* AddClientViewController.swift */,
 				97669AB71EFB14FE00679524 /* ClientTableViewCell.swift */,
@@ -275,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97669ABE1EFB3CCD00679524 /* ClientDetailViewController.swift in Sources */,
 				97669AB61EFA058900679524 /* ClientTableViewController.swift in Sources */,
 				97669ABC1EFB29DC00679524 /* AddClientViewController.swift in Sources */,
 				97669A861EF9EAAA00679524 /* ViewController.swift in Sources */,
