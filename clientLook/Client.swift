@@ -7,7 +7,7 @@
 //
 import UIKit
 
-class Client: NSObject {
+class Client {
     
     //MARK: Properties
     
