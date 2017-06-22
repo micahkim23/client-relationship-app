@@ -37,7 +37,7 @@ class AddClientViewController: UIViewController, UITextFieldDelegate, UIImagePic
     
     // MARK: - Navigation
 
-    @IBAction func cancelBtn(_ sender: Any) {
+    @IBAction func cancelBtnTapped(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
