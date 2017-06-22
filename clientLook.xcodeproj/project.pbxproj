@@ -23,6 +23,7 @@
 		97669AC01EFC294600679524 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97669ABF1EFC294600679524 /* Order.swift */; };
 		97669AC21EFC2B4100679524 /* OrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97669AC11EFC2B4100679524 /* OrderTableViewController.swift */; };
 		97669AC41EFC2B6500679524 /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97669AC31EFC2B6500679524 /* OrderTableViewCell.swift */; };
+		97669ACC1EFC643F00679524 /* ClientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97669ACB1EFC643F00679524 /* ClientModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		97669ABF1EFC294600679524 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		97669AC11EFC2B4100679524 /* OrderTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderTableViewController.swift; sourceTree = "<group>"; };
 		97669AC31EFC2B6500679524 /* OrderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
+		97669ACB1EFC643F00679524 /* ClientModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 				97669AB11EF9F31E00679524 /* RegisterPageViewController.swift */,
 				97669ABD1EFB3CCD00679524 /* ClientDetailViewController.swift */,
 				97669AB51EFA058900679524 /* ClientTableViewController.swift */,
+				97669ACB1EFC643F00679524 /* ClientModel.swift */,
 				97669AC11EFC2B4100679524 /* OrderTableViewController.swift */,
 				97669AC31EFC2B6500679524 /* OrderTableViewCell.swift */,
 				97669ABB1EFB29DC00679524 /* AddClientViewController.swift */,
@@ -291,6 +294,7 @@
 				97669AB61EFA058900679524 /* ClientTableViewController.swift in Sources */,
 				97669ABC1EFB29DC00679524 /* AddClientViewController.swift in Sources */,
 				97669AC01EFC294600679524 /* Order.swift in Sources */,
+				97669ACC1EFC643F00679524 /* ClientModel.swift in Sources */,
 				97669A861EF9EAAA00679524 /* ViewController.swift in Sources */,
 				97669AC41EFC2B6500679524 /* OrderTableViewCell.swift in Sources */,
 				97669ABA1EFB190100679524 /* Client.swift in Sources */,

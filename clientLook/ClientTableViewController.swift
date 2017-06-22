@@ -9,17 +9,17 @@
 import UIKit
 import os.log
 
-class ClientTableViewController: UITableViewController {
-
-    var clients = [Client]()
-    //MARK: Actions
+class ClientTableViewController: UITableViewController, ClientModelProtocol {
+    let clientModel = ClientModel()
+    
+    var clients: NSMutableArray = NSMutableArray()    //MARK: Actions
     @IBAction func unwindToClientList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? AddClientViewController, let client = sourceViewController.client {
             
             // Add a new client
             let newIndexPath = IndexPath(row: clients.count, section: 0)
             
-            clients.append(client)
+            clients.add(client)
             tableView.insertRows(at: [newIndexPath], with: .automatic)
         }
         
@@ -36,25 +36,40 @@ class ClientTableViewController: UITableViewController {
     
     //MARK: Private Methods
     
-    private func loadClients() {
-        
-        //should load from DB
-        let client1 = Client(name: "Alex", phone: "123", email: "1@d.com", birthday: NSDate.init(), clientID: 1)
-        let client2 = Client(name: "Bob", phone: "1234", email: "2@d.com", birthday: NSDate.init(), clientID: 2)
-        let client3 = Client(name: "Cindy", phone: "12345", email: "3@d.com", birthday: NSDate.init(), clientID: 3)
-        
-        clients += [client1, client2, client3]
-        
+//    private func loadClients() {
+//        
+//        //should load from DB
+//        let client1 = Client(name: "Alex", phone: "123", email: "1@d.com", birthday: NSDate.init(), clientID: 1)
+//        let client2 = Client(name: "Bob", phone: "1234", email: "2@d.com", birthday: NSDate.init(), clientID: 2)
+//        let client3 = Client(name: "Cindy", phone: "12345", email: "3@d.com", birthday: NSDate.init(), clientID: 3)
+//        
+//        clients.addObjects(from: [client1, client2, client3])
+//        
+//    }
+    
+    //download client data from DB
+    func getClient(items: NSMutableArray) {
+            
+        clients = items
+        tableView.reloadData()
     }
     
+    func updateClient() {}
     
+    func addClient() {}
+
+    func deleteClient() {}
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.leftBarButtonItem = editButtonItem
         
-        loadClients()
+        
+        clientModel.delegate = self
+        clientModel.downloadItems()
+        
+        //loadClients()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -91,7 +106,7 @@ class ClientTableViewController: UITableViewController {
         
 
         // Configure the cell...
-        cell.clientName.text = client.name
+        cell.clientName.text = (client as! Client).name
         
         return cell
     }
@@ -156,7 +171,7 @@ class ClientTableViewController: UITableViewController {
                 }
                 
                 let selectedClient = clients[indexPath.row]
-                clientDetailViewController.client = selectedClient
+                clientDetailViewController.client = selectedClient as! Client
             default:
                 fatalError("Unexpected Segue Identifier; \(segue.identifier)")
         }

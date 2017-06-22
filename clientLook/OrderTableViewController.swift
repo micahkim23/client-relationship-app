@@ -79,13 +79,13 @@ class OrderTableViewController: UITableViewController {
         
         let imgURL = order.imageURL
         
-        //cell.itemImage.setImageFromURl(stringImageUrl: imgURL)
+        cell.itemImage.setImageFromURl(stringImageUrl: imgURL!)
         // Configure the cell...
-        cell.itemName.text = order.itemName
-        cell.itemPrice.text = String(order.price)
-        cell.itemBrand.text = order.brand
-        cell.asscoName.text = order.assocName
-        cell.orderTime.text = order.orderTime.toString(dateFormat: "yyyy-MM-dd, HH:mm:ss")
+        cell.itemName.text = order.itemName ?? ""
+        cell.itemPrice.text = String(order.price ?? 0)
+        cell.itemBrand.text = order.brand ?? ""
+        cell.asscoName.text = order.assocName ?? ""
+        cell.orderTime.text = order.orderTime!.toString(dateFormat: "yyyy-MM-dd, HH:mm:ss")
         return cell
     }
     

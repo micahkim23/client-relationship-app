@@ -7,17 +7,22 @@
 //
 import UIKit
 
-class Client {
+class Client: NSObject {
     
     //MARK: Properties
     
-    var name: String
+    var name: String?
     //var photo: UIImage?
-    var phone: String
-    var email: String
-    var birthday: NSDate
-    var clientID: Int
-    var custom: String
+    var phone: String?
+    var email: String?
+    var birthday: NSDate?
+    var clientID: Int?
+    var custom: String?
+    
+    override init()
+    {
+        
+    }
     
     init(name: String, phone: String, email: String, birthday: NSDate, clientID: Int, custom: String?="") {
         self.name = name

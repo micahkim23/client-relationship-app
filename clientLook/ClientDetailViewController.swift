@@ -19,7 +19,7 @@ extension NSDate
     
 }
 
-class ClientDetailViewController: UIViewController, UINavigationControllerDelegate {
+class ClientDetailViewController: UIViewController, UINavigationControllerDelegate, ClientModelProtocol {
     var client: Client?
     
     
@@ -32,11 +32,18 @@ class ClientDetailViewController: UIViewController, UINavigationControllerDelega
     @IBOutlet weak var clientPhone: UITextField!
     
     @IBOutlet weak var updateBtn: UIBarButtonItem!
+    
+    func getClient(items: NSMutableArray) {}
+    func addClient() {}
+    func updateClient() {}
+    func deleteClient() {}
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         clientName.text = client?.name
         clientPhone.text = client?.phone
-        clientBirthday.text = client?.birthday.toString(dateFormat: "yyyy-MM-dd")
+        clientBirthday.text = client?.birthday?.toString(dateFormat: "yyyy-MM-dd")
         clientEmail.text = client?.email
         clientCustom.text = client?.custom
         // Do any additional setup after loading the view.

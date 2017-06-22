@@ -8,16 +8,20 @@
 
 import UIKit
 
-class Order {
+class Order: NSObject {
     
-    var orderID: Int
-    var brand: String
-    var itemName: String
-    var orderTime: NSDate
-    var price: Double
-    var assocName: String
-    var imageURL: String
+    var orderID: Int?
+    var brand: String?
+    var itemName: String?
+    var orderTime: NSDate?
+    var price: Double?
+    var assocName: String?
+    var imageURL: String?
     //var sku: CUnsignedLongLong
+    
+    override init() {
+        
+    }
     
     init(orderID: Int, brand: String, itemName: String, orderTime: NSDate, price: Double, assocName: String, imageURL: String?="https://unsplash.it/100/150/?random") {
         self.orderID = orderID
