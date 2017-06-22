@@ -12,7 +12,9 @@ import os.log
 
 class AddClientViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    let clientModel = ClientModel()
     var client: Client?
+    
     @IBOutlet weak var clientName: UITextField!
     
     @IBOutlet weak var clientEmail: UITextField!
@@ -56,11 +58,14 @@ class AddClientViewController: UIViewController, UITextFieldDelegate, UIImagePic
         let phone = clientPhone.text ?? ""
         let birthday = clientBirthday.date
         let custom = clientCustom.text ?? ""
-        
+        client = Client(name: name, phone: phone, email: email, birthday: birthday as NSDate, custom: custom)
         //post to DB
         //create a new client in response
-        client = Client(name: name, phone: phone, email: email, birthday: birthday as NSDate, clientID: 99, custom: custom);
         
+        let clientID = clientModel.addItem(client!)
+        if(clientID != -1) {
+            client!.clientID = clientID
+        }
         
         
     }

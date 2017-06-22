@@ -18,9 +18,10 @@ class ClientTableViewController: UITableViewController, ClientModelProtocol {
             
             // Add a new client
             let newIndexPath = IndexPath(row: clients.count, section: 0)
-            
+//            
             clients.add(client)
             tableView.insertRows(at: [newIndexPath], with: .automatic)
+
         }
         
         if let sourceViewController = sender.source as? ClientDetailViewController, let client = sourceViewController.client {
@@ -49,7 +50,7 @@ class ClientTableViewController: UITableViewController, ClientModelProtocol {
     
     //download client data from DB
     func getClient(items: NSMutableArray) {
-            
+        print("get client")
         clients = items
         tableView.reloadData()
     }

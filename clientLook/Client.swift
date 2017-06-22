@@ -24,13 +24,13 @@ class Client: NSObject {
         
     }
     
-    init(name: String, phone: String, email: String, birthday: NSDate, clientID: Int, custom: String?="") {
+    init(name: String, phone: String, email: String, birthday: NSDate, custom: String? = "", clientID: Int? = -1) {
         self.name = name
         self.phone = phone
         self.email = email
         self.birthday = birthday
-        self.clientID = clientID
         self.custom = custom!
+        self.clientID = clientID!
     }
     
     

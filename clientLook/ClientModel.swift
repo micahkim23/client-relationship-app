@@ -39,7 +39,33 @@ class ClientModel: NSObject {
         task.resume()
     }
     
-    func updateItem() {
+    func addItem(_ client: Client) -> Int {
+        
+        let dict = ["email": client.email, "name": client.name, "phone": client.phone, "birthday": "123", "associate_id": 1] as [String: Any]
+        if let jsonData = try? JSONSerialization.data(withJSONObject: dict, options: []) {
+
+            var request = URLRequest(url: URL(string: "http://localhost:8080/api/client")!)
+            request.httpMethod = "POST"
+            
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.httpBody = jsonData
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                guard let data = data, error == nil else {                                                 // check for fundamental networking error
+                    print("error=\(error)")
+                    return
+                }
+                
+                if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
+                    print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                    print("response = \(response)")
+                }
+                
+                let responseString = String(data: data, encoding: .utf8)
+                print("responseString = \(responseString)")
+            }
+            task.resume()
+        }
+        return -1
         
     }
     
