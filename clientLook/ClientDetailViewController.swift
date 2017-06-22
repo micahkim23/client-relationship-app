@@ -38,7 +38,7 @@ class ClientDetailViewController: UIViewController, UINavigationControllerDelega
         clientPhone.text = client?.phone
         clientBirthday.text = client?.birthday.toString(dateFormat: "yyyy-MM-dd")
         clientEmail.text = client?.email
-        
+        clientCustom.text = client?.custom
         // Do any additional setup after loading the view.
     }
 
