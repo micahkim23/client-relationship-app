@@ -69,6 +69,36 @@ class ClientModel: NSObject {
         
     }
     
+    func updateItem(_ client: Client) -> Int {
+        
+        let dict = ["email": client.email, "name": client.name, "phone": client.phone, "birthday": client.birthday?.toString(dateFormat: "yyyy-MM-dd"), "associate_id": 1] as [String: Any]
+        if let jsonData = try? JSONSerialization.data(withJSONObject: dict, options: []) {
+            
+            var request = URLRequest(url: URL(string: "http://localhost:8080/api/client")!)
+            request.httpMethod = "POST"
+            
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.httpBody = jsonData
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                guard let data = data, error == nil else {                                                 // check for fundamental networking error
+                    print("error=\(error)")
+                    return
+                }
+                
+                if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
+                    print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                    print("response = \(response)")
+                }
+                
+                let responseString = String(data: data, encoding: .utf8)
+                print("responseString = \(responseString)")
+            }
+            task.resume()
+        }
+        return -1
+        
+    }
+    
     func parseJSON(_ data:Data) {
         var jsonResult = NSArray()
         
@@ -94,20 +124,25 @@ class ClientModel: NSObject {
             if let name = jsonElement["name"] as? String,
                 let phone = jsonElement["phone"] as? String,
                 let email = jsonElement["email"] as? String,
-                let birthday = jsonElement["birthday"] as? NSDate
+                let birthday = jsonElement["birthday"] as? String
             {
                 
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd"//this your string date format
+                let index = birthday.index(birthday.startIndex, offsetBy: 10)
+                let date = dateFormatter.date(from: birthday.substring(to: index))
                 client.name = name
                 client.phone = phone
                 client.email = email
-                client.birthday = birthday
+                client.birthday = date as! NSDate
                 
                 
             }
             
             clients.add(client)
-            
+           
         }
+        print("count \(clients.count)")
         
         DispatchQueue.main.async(execute: { () -> Void in
             
