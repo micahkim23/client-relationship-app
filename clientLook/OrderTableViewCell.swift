@@ -1,19 +1,25 @@
 //
-//  ClientTableViewCell.swift
+//  OrderTableViewCell.swift
 //  clientLook
 //
-//  Created by Cyrus Zhang on 6/21/17.
+//  Created by Cyrus Zhang on 6/22/17.
 //  Copyright © 2017 HauteLook. All rights reserved.
 //
 
 import UIKit
 
-class ClientTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var clientPhoto: UIImageView!
+
+class OrderTableViewCell: UITableViewCell {
+
     
-    @IBOutlet weak var clientName: UILabel!
+    @IBOutlet weak var itemImage: UIImageView!
     
+    @IBOutlet weak var itemName: UILabel!
+    @IBOutlet weak var itemBrand: UILabel!
+    @IBOutlet weak var itemPrice: UILabel!
+    @IBOutlet weak var orderTime: UILabel!
+    @IBOutlet weak var asscoName: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
