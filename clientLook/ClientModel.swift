@@ -70,12 +70,12 @@ class ClientModel: NSObject {
     }
     
     func updateItem(_ client: Client) -> Int {
-        
-        let dict = ["email": client.email, "name": client.name, "phone": client.phone, "birthday": client.birthday?.toString(dateFormat: "yyyy-MM-dd"), "associate_id": 1] as [String: Any]
+        client.describe()
+        let dict = ["email": client.email, "name": client.name, "phone": client.phone, "birthday": client.birthday?.toString(dateFormat: "yyyy-MM-dd"), "client_id": client.clientID] as [String: Any]
         if let jsonData = try? JSONSerialization.data(withJSONObject: dict, options: []) {
             
             var request = URLRequest(url: URL(string: "http://localhost:8080/api/client")!)
-            request.httpMethod = "POST"
+            request.httpMethod = "PUT"
             
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             request.httpBody = jsonData
@@ -98,6 +98,7 @@ class ClientModel: NSObject {
         return -1
         
     }
+    
     
     func parseJSON(_ data:Data) {
         var jsonResult = NSArray()
@@ -124,7 +125,8 @@ class ClientModel: NSObject {
             if let name = jsonElement["name"] as? String,
                 let phone = jsonElement["phone"] as? String,
                 let email = jsonElement["email"] as? String,
-                let birthday = jsonElement["birthday"] as? String
+                let birthday = jsonElement["birthday"] as? String,
+                let clientID = jsonElement["clientId"] as? Int
             {
                 
                 let dateFormatter = DateFormatter()
@@ -135,7 +137,7 @@ class ClientModel: NSObject {
                 client.phone = phone
                 client.email = email
                 client.birthday = date as! NSDate
-                
+                client.clientID = clientID
                 
             }
             

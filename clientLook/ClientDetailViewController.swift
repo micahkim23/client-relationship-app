@@ -21,9 +21,7 @@ extension NSDate
 
 class ClientDetailViewController: UIViewController, UINavigationControllerDelegate, ClientModelProtocol {
     var client: Client?
-    
-    
-    
+    let clientModel = ClientModel()    
     
     @IBOutlet weak var clientEmail: UITextField!
     @IBOutlet weak var clientName: UITextField!
@@ -75,9 +73,7 @@ class ClientDetailViewController: UIViewController, UINavigationControllerDelega
         
         //post to DB
         //create a new client in response
-        
-        //client = Client(name: name, phone: phone, email: email, birthday: birthday as NSDate, clientID: 99);
-        
+        clientModel.updateItem(client!)
 
     }
     

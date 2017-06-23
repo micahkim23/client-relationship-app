@@ -33,6 +33,11 @@ class Client: NSObject {
         self.clientID = clientID!
     }
     
+    func describe() {
+        let bday = birthday?.toString(dateFormat: "yyyy-MM-dd")
+        print("name=\(name), phone=\(phone), email=\(email), birthday=\(bday), clientID=\(clientID), custom=\(custom))")
+    }
+    
     
     
 }
