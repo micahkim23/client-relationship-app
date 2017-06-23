@@ -55,11 +55,7 @@ class ClientTableViewController: UITableViewController, ClientModelProtocol {
         tableView.reloadData()
     }
     
-    func updateClient() {}
-    
-    func addClient() {}
-
-    func deleteClient() {}
+    func getOrderHistory(items: NSMutableArray) {}
     
     override func viewDidLoad() {
         super.viewDidLoad()

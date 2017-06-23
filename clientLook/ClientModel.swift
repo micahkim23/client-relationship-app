@@ -9,9 +9,7 @@
 import UIKit
 protocol ClientModelProtocol: class {
     func getClient(items: NSMutableArray)
-    func addClient()
-    func updateClient()
-    func deleteClient()
+    func getOrderHistory(items: NSMutableArray)
 }
 
 class ClientModel: NSObject {

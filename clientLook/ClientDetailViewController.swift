@@ -19,7 +19,9 @@ extension NSDate
     
 }
 
-class ClientDetailViewController: UIViewController, UINavigationControllerDelegate, ClientModelProtocol {
+class ClientDetailViewController: UIViewController, UINavigationControllerDelegate{
+    
+
     var client: Client?
     let clientModel = ClientModel()    
     
@@ -31,10 +33,6 @@ class ClientDetailViewController: UIViewController, UINavigationControllerDelega
     
     @IBOutlet weak var updateBtn: UIBarButtonItem!
     
-    func getClient(items: NSMutableArray) {}
-    func addClient() {}
-    func updateClient() {}
-    func deleteClient() {}
     
     
     override func viewDidLoad() {

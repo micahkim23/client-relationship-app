@@ -20,10 +20,15 @@ extension UIImageView{
     }
 }
 
-class OrderTableViewController: UITableViewController {
+class OrderTableViewController: UITableViewController, ClientModelProtocol {
 
     var orders = [Order]()
     
+    func getOrderHistory(items: NSMutableArray){
+        
+    }
+    
+    func getClient(items: NSMutableArray) {}
     
     override func viewDidLoad() {
         super.viewDidLoad()
