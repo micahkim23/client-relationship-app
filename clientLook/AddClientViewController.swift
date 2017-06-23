@@ -26,7 +26,7 @@ class AddClientViewController: UIViewController, UITextFieldDelegate, UIImagePic
     @IBOutlet weak var saveBtn: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
 
@@ -62,10 +62,10 @@ class AddClientViewController: UIViewController, UITextFieldDelegate, UIImagePic
         //post to DB
         //create a new client in response
         
-        let clientID = clientModel.addItem(client!)
-        if(clientID != -1) {
-            client!.clientID = clientID
-        }
+        //let clientID = clientModel.addItem(client!)
+//        if(clientID != -1) {
+//            client!.clientID = clientID
+//        }
         
         
     }

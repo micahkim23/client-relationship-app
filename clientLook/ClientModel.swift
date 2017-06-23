@@ -60,6 +60,7 @@ class ClientModel: NSObject {
                 
                 let responseString = String(data: data, encoding: .utf8)
                 print("responseString = \(responseString)")
+                self.downloadItems()
             }
             task.resume()
         }
@@ -90,6 +91,7 @@ class ClientModel: NSObject {
                 
                 let responseString = String(data: data, encoding: .utf8)
                 print("responseString = \(responseString)")
+                self.downloadItems()
             }
             task.resume()
         }

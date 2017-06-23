@@ -15,22 +15,18 @@ class ClientTableViewController: UITableViewController, ClientModelProtocol {
     var clients: NSMutableArray = NSMutableArray()    //MARK: Actions
     @IBAction func unwindToClientList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? AddClientViewController, let client = sourceViewController.client {
-            
+            clientModel.addItem(client)
             // Add a new client
-            let newIndexPath = IndexPath(row: clients.count, section: 0)
-//            
-            clients.add(client)
-            tableView.insertRows(at: [newIndexPath], with: .automatic)
+//            let newIndexPath = IndexPath(row: clients.count, section: 0)
+////            
+//            clients.add(client)
+//            tableView.insertRows(at: [newIndexPath], with: .automatic)
 
         }
         
         if let sourceViewController = sender.source as? ClientDetailViewController, let client = sourceViewController.client {
             
-            if let selectedIndexPath = tableView.indexPathForSelectedRow {
-                // Update an existing meal.
-                clients[selectedIndexPath.row] = client
-                tableView.reloadRows(at: [selectedIndexPath], with: .none)
-            }
+            clientModel.updateItem(client)
         }
     }
     

@@ -71,7 +71,7 @@ class ClientDetailViewController: UIViewController, UINavigationControllerDelega
         
         //post to DB
         //create a new client in response
-        clientModel.updateItem(client!)
+       
 
     }
     
