@@ -39,7 +39,7 @@ class ClientModel: NSObject {
     
     func addItem(_ client: Client) -> Int {
         
-        let dict = ["email": client.email, "name": client.name, "phone": client.phone, "birthday": client.birthday?.toString(dateFormat: "yyyy-MM-dd"), "associate_id": 1] as [String: Any]
+        let dict = ["email": client.email, "name": client.name, "phone": client.phone, "birthday": client.birthday?.toString(dateFormat: "yyyy-MM-dd"), "custom": "fad", "associate_id": 1] as [String: Any]
         if let jsonData = try? JSONSerialization.data(withJSONObject: dict, options: []) {
 
             var request = URLRequest(url: URL(string: "http://localhost:8080/api/client")!)
@@ -71,7 +71,7 @@ class ClientModel: NSObject {
     
     func updateItem(_ client: Client) -> Int {
         client.describe()
-        let dict = ["email": client.email, "name": client.name, "phone": client.phone, "birthday": client.birthday?.toString(dateFormat: "yyyy-MM-dd"), "client_id": client.clientID] as [String: Any]
+        let dict = ["email": client.email, "name": client.name, "phone": client.phone, "birthday": client.birthday?.toString(dateFormat: "yyyy-MM-dd"), "custom": "fad", "client_id": client.clientID] as [String: Any]
         if let jsonData = try? JSONSerialization.data(withJSONObject: dict, options: []) {
             
             var request = URLRequest(url: URL(string: "http://localhost:8080/api/client")!)
@@ -161,6 +161,7 @@ class ClientModel: NSObject {
                 let email = jsonElement["email"] as? String,
                 let birthday = jsonElement["birthday"] as? String,
                 let clientID = jsonElement["clientId"] as? Int
+                //let custom = jsonElement["custom"] as? String
             {
                 
                 let dateFormatter = DateFormatter()
@@ -172,6 +173,7 @@ class ClientModel: NSObject {
                 client.email = email
                 client.birthday = date as! NSDate
                 client.clientID = clientID
+//                client.custom = custom
                 
             }
             
