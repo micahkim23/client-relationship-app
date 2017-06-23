@@ -12,7 +12,7 @@ import os.log
 class ClientTableViewController: UITableViewController, ClientModelProtocol {
     let clientModel = ClientModel()
     
-    var clients: NSMutableArray = NSMutableArray()    //MARK: Actions
+    var clients = [Client]()    //MARK: Actions
     @IBAction func unwindToClientList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? AddClientViewController, let client = sourceViewController.client {
             clientModel.addItem(client)
@@ -45,13 +45,13 @@ class ClientTableViewController: UITableViewController, ClientModelProtocol {
 //    }
     
     //download client data from DB
-    func getClient(items: NSMutableArray) {
+    func getClient(items: NSArray) {
         print("get client")
-        clients = items
+        clients = items as! [Client]
         tableView.reloadData()
     }
     
-    func getOrderHistory(items: NSMutableArray) {}
+    func getOrderHistory(items: NSArray) {}
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -118,8 +118,10 @@ class ClientTableViewController: UITableViewController, ClientModelProtocol {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            clientModel.deleteItem(clients[indexPath.row])
             clients.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    

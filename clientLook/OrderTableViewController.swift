@@ -20,7 +20,7 @@ extension UIImageView{
     }
 }
 
-class OrderTableViewController: UITableViewController, ClientModelProtocol {
+class OrderTableViewController: UITableViewController {
 
     var orders = [Order]()
     

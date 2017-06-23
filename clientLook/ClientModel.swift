@@ -8,8 +8,8 @@
 
 import UIKit
 protocol ClientModelProtocol: class {
-    func getClient(items: NSMutableArray)
-    func getOrderHistory(items: NSMutableArray)
+    func getClient(items: NSArray)
+    func getOrderHistory(items: NSArray)
 }
 
 class ClientModel: NSObject {
@@ -68,6 +68,7 @@ class ClientModel: NSObject {
         
     }
     
+    
     func updateItem(_ client: Client) -> Int {
         client.describe()
         let dict = ["email": client.email, "name": client.name, "phone": client.phone, "birthday": client.birthday?.toString(dateFormat: "yyyy-MM-dd"), "client_id": client.clientID] as [String: Any]
@@ -98,6 +99,39 @@ class ClientModel: NSObject {
         return -1
         
     }
+    
+    func deleteItem(_ client: Client) -> Int {
+        client.describe()
+        //let dict = ["email": client.email, "name": client.name, "phone": client.phone, "birthday": client.birthday?.toString(dateFormat: "yyyy-MM-dd"), "client_id": client.clientID] as [String: Any]
+        //if let jsonData = try? JSONSerialization.data(withJSONObject: dict, options: []) {
+        let clientID = client.clientID
+        var request = URLRequest(url: URL(string: "http://localhost:8080/api/client/\(Int(clientID!))")!)
+        request.httpMethod = "DELETE"
+        
+        //request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+    
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {                                                 // check for fundamental networking error
+                print("error=\(error)")
+                return
+            }
+            
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
+                print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                print("response = \(response)")
+            }
+            
+            let responseString = String(data: data, encoding: .utf8)
+            print("responseString = \(responseString)")
+            //self.downloadItems()
+        }
+        task.resume()
+        //}
+        return -1
+        
+    }
+
+    
     
     
     func parseJSON(_ data:Data) {
