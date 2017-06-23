@@ -17,6 +17,7 @@ class Order: NSObject {
     var price: Double?
     var assocName: String?
     var imageURL: String?
+    var image: UIImage?
     //var sku: CUnsignedLongLong
     
     override init() {

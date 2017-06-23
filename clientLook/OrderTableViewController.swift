@@ -44,9 +44,13 @@ class OrderTableViewController: UITableViewController {
     
     private func loadOrders() {
         let order1 = Order(orderID: 1, brand: "Hugo Boss", itemName: "T-shirt", orderTime: NSDate.init() , price: 120.99, assocName: "Alex")
+        order1.image = UIImage(named:"t-shirt.jpg")
         let order2 = Order(orderID: 2, brand: "Chanel", itemName: "Handbag", orderTime: NSDate.init() , price: 2339.99, assocName: "Cindy")
+        order2.image = UIImage(named:"handbag.jpg")
         let order3 = Order(orderID: 3, brand: "Vince", itemName: "dress", orderTime: NSDate.init() , price: 228.99, assocName: "Bob")
+        order3.image = UIImage(named:"dress.jpg")
         let order4 = Order(orderID: 4, brand: "Nike", itemName: "Shoes", orderTime: NSDate.init() , price: 89.99, assocName: "Cindy")
+        order4.image = UIImage(named:"shoes.png")
         
         orders += [order1, order2, order3, order4]
         
@@ -84,7 +88,8 @@ class OrderTableViewController: UITableViewController {
         
         let imgURL = order.imageURL
         
-        cell.itemImage.setImageFromURl(stringImageUrl: imgURL!)
+        //cell.itemImage.setImageFromURl(stringImageUrl: imgURL!)
+        cell.itemImage.image = order.image
         // Configure the cell...
         cell.itemName.text = order.itemName ?? ""
         cell.itemPrice.text = "$" + String(order.price ?? 0)

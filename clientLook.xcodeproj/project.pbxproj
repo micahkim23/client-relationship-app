@@ -24,6 +24,11 @@
 		97669AC21EFC2B4100679524 /* OrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97669AC11EFC2B4100679524 /* OrderTableViewController.swift */; };
 		97669AC41EFC2B6500679524 /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97669AC31EFC2B6500679524 /* OrderTableViewCell.swift */; };
 		97669ACC1EFC643F00679524 /* ClientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97669ACB1EFC643F00679524 /* ClientModel.swift */; };
+		97669AD11EFD72EA00679524 /* pie_chart.png in Resources */ = {isa = PBXBuildFile; fileRef = 97669AD01EFD72EA00679524 /* pie_chart.png */; };
+		97669AD61EFD748D00679524 /* dress.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 97669AD21EFD748D00679524 /* dress.jpg */; };
+		97669AD71EFD748D00679524 /* handbag.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 97669AD31EFD748D00679524 /* handbag.jpg */; };
+		97669AD81EFD748D00679524 /* shoes.png in Resources */ = {isa = PBXBuildFile; fileRef = 97669AD41EFD748D00679524 /* shoes.png */; };
+		97669AD91EFD748D00679524 /* t-shirt.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 97669AD51EFD748D00679524 /* t-shirt.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +72,11 @@
 		97669AC11EFC2B4100679524 /* OrderTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderTableViewController.swift; sourceTree = "<group>"; };
 		97669AC31EFC2B6500679524 /* OrderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
 		97669ACB1EFC643F00679524 /* ClientModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientModel.swift; sourceTree = "<group>"; };
+		97669AD01EFD72EA00679524 /* pie_chart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pie_chart.png; path = ../../pie_chart.png; sourceTree = "<group>"; };
+		97669AD21EFD748D00679524 /* dress.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = dress.jpg; path = ../../dress.jpg; sourceTree = "<group>"; };
+		97669AD31EFD748D00679524 /* handbag.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = handbag.jpg; path = ../../handbag.jpg; sourceTree = "<group>"; };
+		97669AD41EFD748D00679524 /* shoes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shoes.png; path = ../../shoes.png; sourceTree = "<group>"; };
+		97669AD51EFD748D00679524 /* t-shirt.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "t-shirt.jpg"; path = "../../t-shirt.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				97669A831EF9EAAA00679524 /* AppDelegate.swift */,
+				97669ACD1EFD717A00679524 /* resource */,
 				97669A851EF9EAAA00679524 /* ViewController.swift */,
 				97669AB11EF9F31E00679524 /* RegisterPageViewController.swift */,
 				97669ABD1EFB3CCD00679524 /* ClientDetailViewController.swift */,
@@ -153,6 +164,18 @@
 				97669AA51EF9EAAA00679524 /* Info.plist */,
 			);
 			path = clientLookUITests;
+			sourceTree = "<group>";
+		};
+		97669ACD1EFD717A00679524 /* resource */ = {
+			isa = PBXGroup;
+			children = (
+				97669AD21EFD748D00679524 /* dress.jpg */,
+				97669AD31EFD748D00679524 /* handbag.jpg */,
+				97669AD41EFD748D00679524 /* shoes.png */,
+				97669AD51EFD748D00679524 /* t-shirt.jpg */,
+				97669AD01EFD72EA00679524 /* pie_chart.png */,
+			);
+			name = resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,8 +287,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				97669A8E1EF9EAAA00679524 /* LaunchScreen.storyboard in Resources */,
+				97669AD11EFD72EA00679524 /* pie_chart.png in Resources */,
+				97669AD61EFD748D00679524 /* dress.jpg in Resources */,
 				97669A8B1EF9EAAA00679524 /* Assets.xcassets in Resources */,
+				97669AD81EFD748D00679524 /* shoes.png in Resources */,
+				97669AD91EFD748D00679524 /* t-shirt.jpg in Resources */,
 				97669A891EF9EAAA00679524 /* Main.storyboard in Resources */,
+				97669AD71EFD748D00679524 /* handbag.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
